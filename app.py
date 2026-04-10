@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+
 #Langchain components to import
 from langchain_community.vectorstores import Cassandra
 from langchain_community.indexes import VectorStoreIndexWrapper
@@ -14,10 +17,12 @@ import cassio
 
 from PyPDF2 import PdfFileReader
 
-ASTRA_DB_APPLICATION_TOKEN = "AstraCS:ImecPAlWRFypwfTxcXbvZmGt:7b421b94810e9cafde579adb131d674a5873a4ce143ecfca74095b4c58c7fb30"
-ASTRA_DB_ID = "01c8f635-8a18-456f-816e-1bb428a9498a"
+load_dotenv()
 
-OPENAI_API_KEY = "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"
+ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
+ASTRA_DB_ID = os.getenv("ASTRA_DB_ID")
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 pdfContent = PdfFileReader('harry_potter_7.pdf')
 
